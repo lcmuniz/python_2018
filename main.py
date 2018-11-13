@@ -52,11 +52,37 @@ def excluir_aluno():
 
 #------------------------------------------------------------------
 
+def cadastrar_notas_faltas():
+    print('Cadastrar Notas e Faltas:')
+    matricula = input('Matrícula do aluno:')
+
+    for aluno in alunos:
+        if aluno.matricula == matricula:
+            nota1 = float(input('Nota 1: '))
+            faltas1 = int(input('Faltas 1: '))
+            nota2 = float(input('Nota 2: '))
+            faltas2 = int(input('Faltas 2: '))
+
+            aluno.nota1 = nota1
+            aluno.nota2 = nota2
+            aluno.faltas1 = faltas1
+            aluno.faltas2 = faltas2
+
+            print('Notas cadastradas com sucesso')
+            print()
+            return
+
+    print('Aluno não encontrado')
+    print()
+
+#------------------------------------------------------------------
+
 while True:
     print('Menu Principal')
     print('1 - Listar alunos')
     print('2 - Cadastrar aluno')
     print('3 - Excluir aluno')
+    print('4 - Cadastrar notas e faltas')
     print('0 - Sair')
     opcao = input('Opção: ')
     print()
@@ -69,3 +95,5 @@ while True:
         cadastrar_aluno()
     elif opcao == '3':
        excluir_aluno()
+    elif opcao == '4':
+        cadastrar_notas_faltas()
